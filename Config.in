@@ -1,0 +1,12 @@
+#
+
+mainmenu "Buildroot $BR2_VERSION Configuration"
+
+config BR2_HAVE_DOT_CONFIG
+	bool
+	default y
+
+config BR2_VERSION
+	string
+	option env="BR2_VERSION_FULL"
+
