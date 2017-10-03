@@ -376,8 +376,6 @@ unexport DESTDIR
 # Causes breakage with packages that needs host-ruby
 unexport RUBYOPT
 
-include package/pkg-utils.mk
-include package/doc-asciidoc.mk
 
 ifeq ($(BR2_HAVE_DOT_CONFIG),y)
 
@@ -1099,7 +1097,6 @@ print-version:
 	(cd configs; LC_ALL=C ls -1 *_defconfig) | sed 's/$$/: *defconfig/' >> $@
 	./support/testing/run-tests -l 2>&1 | sed -r -e '/^test_run \((.*)\).*/!d; s//\1: *runtime_test/' | LC_ALL=C sort >> $@
 
-include docs/manual/manual.mk
 -include $(foreach dir,$(BR2_EXTERNAL_DIRS),$(dir)/docs/*/*.mk)
 
 .PHONY: $(noconfig_targets)
